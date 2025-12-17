@@ -1,0 +1,251 @@
+﻿@page
+@model PruebaTecnica.Pages.Seeker.SeekerDashboardModel
+@{
+	ViewData["Title"] = "Panel del Candidato";
+}
+@using PruebaTecnica.Models;
+
+<div class="container-fluid" style="height: calc(100vh - 60px); overflow: hidden;">
+	<div class="row h-100">
+
+		<div class="col-lg-8 h-100 py-4" style="overflow-y: auto; scrollbar-width: thin;">
+			<div class="pe-2">
+
+				<ul class="nav nav-pills mb-4 bg-white p-2 rounded shadow-sm sticky-top" id="pills-tab" role="tablist" style="z-index: 1020;">
+					<li class="nav-item" role="presentation">
+						<button class="nav-link active rounded-pill px-4" id="pills-feed-tab" data-bs-toggle="pill" data-bs-target="#pills-feed" type="button" role="tab">
+							<i class="bi bi-briefcase me-2"></i>Ofertas Disponibles
+						</button>
+					</li>
+					<li class="nav-item" role="presentation">
+						<button class="nav-link rounded-pill px-4 position-relative" id="pills-history-tab" data-bs-toggle="pill" data-bs-target="#pills-history" type="button" role="tab">
+							<i class="bi bi-send-check me-2"></i>Mis Postulaciones
+							@if (Model.MyApplications.Count > 0 && Model.MyApplications != null) {
+								<span class="badge rounded-pill bg-danger ms-1">@Model.MyApplications.Count</span>
+							}
+						</button>
+					</li>
+				</ul>
+
+				<div class="tab-content" id="pills-tabContent">
+
+					<div class="tab-pane fade show active" id="pills-feed" role="tabpanel">
+						<div class="d-flex justify-content-between align-items-center mb-3">
+							<h5 class="fw-bold m-0 text-secondary">Nuevas Oportunidades</h5>
+							<span class="text-muted small">@Model.AvailableJobs.Count vacantes encontradas</span>
+						</div>
+
+						@if (!Model.AvailableJobs.Any()) {
+							<div class="text-center py-5 bg-white rounded shadow-sm">
+								<i class="bi bi-search text-muted display-4"></i>
+								<p class="text-muted mt-3">No hay ofertas nuevas por el momento.</p>
+							</div>
+						}
+
+						@foreach (var job in Model.AvailableJobs) {
+							<article class="card shadow-sm border-0 mb-3 hover-shadow" style="transition: 0.3s;">
+								<div class="card-body p-4">
+									<h4 class="h5 fw-bold mb-1">
+										<a href="#" class="text-decoration-none text-dark">@job.Title</a>
+									</h4>
+
+									<p class="text-muted mb-2">
+										<i class="bi bi-geo-alt me-1"></i>
+										@(job.Employer?.Industry ?? "Sin Especificar")
+										<span class="mx-3 text-light">|</span>
+										<i class="bi bi-building me-1"></i>
+										<strong>@(job.Employer?.User?.FullName ?? "CONFIDENCIAL")</strong>
+										<span class="mx-2 text-light">|</span>
+										<i class="bi bi-geo-alt me-1"></i>
+										@(job.Employer?.Location ?? "Sin Especificar")
+									</p>
+
+									<div class="d-flex gap-3 mb-3 text-secondary small">
+										<span>
+											<i class="bi bi-cash-stack me-1"></i>
+											@job.Salary - (@(job.Payment == 0 ? "Sin Especificar" : job.Payment.ToString()))
+										</span>
+										<span class="text-light">|</span>
+										<span>
+											<i class="bi bi-laptop me-1"></i>
+											@job.Mode
+										</span>
+									</div>
+
+									<p class="text-secondary small mb-3 text-truncate-2">@job.Description</p>
+
+									<div class="d-flex justify-content-between align-items-center border-top pt-3 mt-2">
+										<span class="text-muted small">
+											<i class="bi bi-clock me-1"></i>
+											@{
+												var timeSpan = DateTime.Now - job.CreatedDate;
+												if (timeSpan.TotalDays < 1) {
+													@($"Hace {(timeSpan.TotalHours < 1 ? $"{(int)timeSpan.TotalMinutes} minutos" : $"{(int)timeSpan.TotalHours} horas")}")
+												}
+												else {
+													@($"Hace {(int)timeSpan.TotalDays} días")
+												}
+											}
+										</span>
+										<div class="btn-group">
+											<form method="post" asp-page-handler="Apply">
+												<input type="hidden" name="jobId" value="@job.Id" />
+												<button type="submit" class="btn btn-primary btn-sm px-4 rounded-pill shadow-sm">Postularme</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</article>
+						}
+					</div>
+
+					<div class="tab-pane fade" id="pills-history" role="tabpanel">
+						<div class="d-flex justify-content-between align-items-center mb-3">
+							<h5 class="fw-bold m-0 text-secondary">Mis Postulaciones Realizadas</h5>
+						</div>
+
+						@if (!Model.MyApplications.Any()) {
+							<div class="text-center py-5 bg-white rounded shadow-sm">
+								<i class="bi bi-send-exclamation text-muted display-4"></i>
+								<p class="text-muted mt-3">Aún no te has postulado a ninguna oferta.</p>
+							</div>
+						}
+						@if (Model.MyApplications != null && Model.MyApplications.Count != 0) {
+							@foreach (var apply in Model.MyApplications) {
+
+								int progress = 0;
+								string barColor = "bg-primary";
+								string statusText = "Enviada";
+
+								switch (apply.Status) {
+									case MyStatus.Sended: progress = 20; statusText = "Recibida"; break;
+									case MyStatus.Viewed: progress = 40; statusText = "Vista por la empresa"; break;
+									case MyStatus.Interview: progress = 60; statusText = "En Entrevista"; break;
+									case MyStatus.OnTest: progress = 80; statusText = "En Pruebas Técnicas"; break;
+									case MyStatus.Completed: progress = 100; statusText = "Proceso Finalizado"; barColor = "bg-success"; break;
+									case MyStatus.Rejected: progress = 100; statusText = "No seleccionado"; barColor = "bg-danger"; break;
+								}
+
+								<div class="card border-0 shadow-sm mb-3" style="border-left: 5px solid @(apply.Status == MyStatus.Rejected ? "#dc3545" : "#0d6efd") !important;">
+									<div class="card-body p-3">
+										<div class="row align-items-center">
+											<div class="col-md-5">
+												<h6 class="fw-bold mb-0">@apply.JobOffer.Title</h6>
+												<small class="text-muted">@apply.JobOffer.Employer?.User?.FullName</small>
+											</div>
+
+											<div class="col-md-5">
+												<div class="d-flex justify-content-between mb-1">
+													<small class="fw-bold @(apply.Status == MyStatus.Rejected ? "text-danger" : "text-primary")" style="font-size: 0.75rem;">
+														@statusText
+													</small>
+													<small class="text-muted" style="font-size: 0.7rem;">@progress%</small>
+												</div>
+												<div class="progress" style="height: 6px;">
+													<div class="progress-bar @barColor"
+														 role="progressbar"
+														 style="width: @progress%"></div>
+												</div>
+											</div>
+
+											<div class="col-md-2 text-end">
+												<small class="text-muted d-block" style="font-size: 0.7rem;">Aplicado el:</small>
+												<small class="fw-bold">@apply.AppliedAt.ToString("dd/MM/yyyy")</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							}
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4 py-4 bg-light border-start h-100">
+			<div class="h-100 pe-2" style="overflow-y: auto; scrollbar-width: thin;">
+
+				<div class="card shadow-sm border-info mb-3">
+					<div class="card-body">
+						<div class="text-center mb-3">
+							<div class="bg-success rounded-circle d-inline-block p-5 mb-2 shadow-sm">
+								<i class="bi bi-person-fill text-white fs-1"></i>
+							</div>
+							<h5 class="fw-bold">@Model.Profile.User!.FullName</h5>
+							<span class="badge bg-secondary rounded-pill">Candidato</span>
+						</div>
+
+						<hr />
+
+						<h6><i class="bi bi-info-circle text-center"></i> Información Profesional</h6>
+						<ul class="list-group list-group-flush mb-3">
+							<li class="list-group-item d-flex justify-content-between align-items-center small">
+								Experiencia:
+								<span class="text-muted fw-bold">@Model.Profile.WorkXP</span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between align-items-center small">
+								Nivel Educativo:
+								<span class="text-muted fw-bold">@Model.Profile.ELevel</span>
+							</li>
+						</ul>
+
+						<div class="d-grid gap-2">
+							<a asp-page="./Edit" asp-route-id="@Model.Profile.Id" class="btn btn-primary btn-sm px-4 rounded-pill shadow-sm">
+								<i class="bi bi-pencil-square"></i> Editar mi perfil
+							</a>
+							<a asp-page="/Index" class="btn btn-outline-danger btn-sm px-4 rounded-pill">Cerrar Sesión</a>
+						</div>
+					</div>
+					<div class="card-body">
+						<h6 class="fw-bold mb-3"><i class="bi bi-graph-up-arrow text-primary me-2"></i>Mi Actividad</h6>
+
+						@if (Model.MyApplications.Any()) {
+							<div class="text-center mb-4">
+								<h2 class="fw-bold text-primary mb-0">@Model.MyApplications.Count</h2>
+								<p class="text-muted small">Postulaciones totales</p>
+							</div>
+
+							<div class="small">
+								@{
+									var viewed = Model.MyApplications.Count(a => a.Status >= MyStatus.Viewed);
+									var rejected = Model.MyApplications.Count(a => a.Status == MyStatus.Rejected);
+								}
+
+								<div class="d-flex justify-content-between mb-2">
+									<span><i class="bi bi-eye text-info me-2"></i>Vistas:</span>
+									<span class="fw-bold">@viewed</span>
+								</div>
+								<div class="progress mb-3" style="height: 4px;">
+									<div class="progress-bar bg-info" style="width: @(Model.MyApplications.Count > 0 ? (viewed * 100 / Model.MyApplications.Count) : 0)%"></div>
+								</div>
+
+								<div class="d-flex justify-content-between mb-2">
+									<span><i class="bi bi-x-circle text-danger me-2"></i>Rechazadas:</span>
+									<span class="fw-bold">@rejected</span>
+								</div>
+
+								<div class="bg-light p-2 rounded border-start border-4 border-warning">
+									<p class="mb-0" style="font-size: 0.75rem;">
+										<i class="bi bi-lightbulb text-warning"></i>
+										@if (rejected > 0) {
+											@($"Tu perfil ha sido descartado en algunas ofertas. ¡Prueba actualizando tus notas!")
+										}
+										else {
+											@($"Puedes postularte a vacantes de nivel: {Model.Profile.ELevel}")
+										}
+									</p>
+								</div>
+							</div>
+						}
+						else {
+							<div class="text-center py-4">
+								<i class="bi bi-rocket-takeoff text-muted fs-1 d-block mb-2"></i>
+								<p class="text-muted small">Postúlate para ver tus estadísticas</p>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,167 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
+build_property.RootNamespace = PruebaTecnica
+build_property.RootNamespace = PruebaTecnica
+build_property.ProjectDir = C:\Users\cuack\Documents\GitHub\PruebaTecnica_Razor\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\cuack\Documents\GitHub\PruebaTecnica_Razor
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Employer/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Employer/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZXJcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Employer/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Employer/EDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZXJcRURhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Employer/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZXJcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Employer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/JobApplications/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iQXBwbGljYXRpb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/JobApplications/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iQXBwbGljYXRpb25zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/JobApplications/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iQXBwbGljYXRpb25zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/JobApplications/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iQXBwbGljYXRpb25zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/JobApplications/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iQXBwbGljYXRpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/JobOffers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iT2ZmZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/JobOffers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iT2ZmZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/JobOffers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iT2ZmZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/JobOffers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iT2ZmZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/JobOffers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9iT2ZmZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Seeker/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2Vla2VyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Seeker/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2Vla2VyXERhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Seeker/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2Vla2VyXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Seeker/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2Vla2VyXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Seeker/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2Vla2VyXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Seeker/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2Vla2VyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Users/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Users/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cuack/Documents/GitHub/PruebaTecnica_Razor/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-dihj6234wr

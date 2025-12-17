@@ -1,0 +1,53 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            @if (TempData["LoginError"] != null) {
+                <div class="alert alert-danger">@TempData["LoginError"]</div>
+            }
+
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <h3 class="text-center">Ya tengo cuenta</h3>
+                    <form asp-controller="Account" asp-action="Login" method="post">
+                        <div class="form-group mb-3">
+                            <label class="form-label">Correo Electrónico</label>
+                            <input type="email" name="email" class="form-control" required />
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" name="password" class="form-control" required />
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+                        </div>
+                    </form>
+
+                    <hr class="my-4">
+
+                    <fieldset class="border p-3 rounded">
+                        <h3 class="text-center">Soy Nuevo</h3>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <a asp-controller="Users" asp-action="Create" asp-route-role="Seeker"
+                                   class="btn btn-outline-success w-100 h-250 py-2">
+                                    Soy Candidato
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a asp-controller="Users" asp-action="Create" asp-route-role="Employer"
+                                   class="btn btn-outline-info w-100 h-250 py-2">
+                                    Soy Empresa
+                                </a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
