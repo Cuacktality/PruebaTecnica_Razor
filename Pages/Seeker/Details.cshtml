@@ -1,55 +1,113 @@
-﻿@page
+﻿@page "{id:int}"
 @model PruebaTecnica.Pages.Seeker.DetailsModel
-
+@using PruebaTecnica.Models;
 @{
-    ViewData["Title"] = "Details";
+	ViewData["Title"] = "Perfil del Candidato";
+
+	
+	string headerClass = Model.CurrentStatus switch {
+		MyStatus.Interview => "bg-warning text-dark", 
+		MyStatus.OnTest => "bg-info text-white",      
+		MyStatus.Completed => "bg-success text-white", 
+		MyStatus.Rejected => "bg-danger text-white",   
+		_ => "bg-primary text-white"                   
+	};
+
+	string iconColor = Model.CurrentStatus == MyStatus.Interview ? "text-warning" : "text-primary";
 }
 
-<h1>Details</h1>
+<div class="container py-5">
+	<div class="row justify-content-center">
+		<div class="col-md-9">
+			<div class="mb-4">
+				<button type="submit" name="newStatus" value="6" class="btn btn-outline-danger btn-sm rounded-pill px-3">
+					<i class="bi bi-arrow-left"></i> Volver
+						</button> 
+			</div>
 
-<div>
-    <h4>SeekerProfile</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SeekerProfile.User)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SeekerProfile.User.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SeekerProfile.Age)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SeekerProfile.Age)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SeekerProfile.ContactNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SeekerProfile.ContactNumber)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SeekerProfile.ELevel)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SeekerProfile.ELevel)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SeekerProfile.WorkXP)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SeekerProfile.WorkXP)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SeekerProfile.Notes)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SeekerProfile.Notes)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.SeekerProfile.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+			<div class="card shadow-sm border-0 overflow-hidden">
+    <div class="card-header @headerClass py-5 text-center transition-all" style="transition: 0.5s;">
+        <div class="bg-white rounded-circle d-inline-block p-3 mb-3 shadow-sm">
+            <i class="bi bi-person-fill @iconColor display-4"></i>
+        </div>
+        <h2 class="fw-bold mb-0">@Model.SeekerProfile.User?.FullName</h2>
+					<p class="lead opacity-75">Candidato Postulado</p>
+        <p class="lead opacity-75">
+            Estado: <strong>@Model.CurrentStatus</strong>
+        </p>
+     			</div>
+
+				<div class="card-body p-5">
+					<div class="row">
+						<div class="col-md-5 border-end">
+							<h5 class="fw-bold mb-4 text-primary"><i class="bi bi-person-lines-fill me-2"></i>Contacto</h5>
+
+							<div class="mb-3">
+								<label class="text-muted small d-block">Correo Electrónico</label>
+								<span class="fw-bold">@Model.SeekerProfile.User?.Email</span>
+							</div>
+
+							<div class="mb-3">
+								<label class="text-muted small d-block">Teléfono / WhatsApp</label>
+								<span class="fw-bold">@Model.SeekerProfile.ContactNumber</span>
+							</div>
+
+							<div class="mb-3">
+								<label class="text-muted small d-block">Edad</label>
+								<span class="fw-bold">@Model.SeekerProfile.Age años</span>
+							</div>
+						</div>
+
+						<div class="col-md-7 ps-md-5">
+							<h5 class="fw-bold mb-4 text-primary"><i class="bi bi-briefcase-fill me-2"></i>Perfil Profesional</h5>
+
+							<div class="mb-4">
+								<label class="text-muted small d-block">Nivel Educativo</label>
+								<span class="badge bg-info text-white fs-6">@Model.SeekerProfile.ELevel</span>
+							</div>
+
+							<div class="mb-4">
+								<label class="text-muted small d-block">Experiencia Laboral</label>
+								<p class="bg-light p-3 rounded border">
+									@Model.SeekerProfile.WorkXP
+								</p>
+							</div>
+
+							@if (!string.IsNullOrEmpty(Model.SeekerProfile.Notes)) {
+								<div class="mb-4">
+									<label class="text-muted small d-block">Notas Adicionales</label>
+									<p class="text-secondary small italic">
+										"@Model.SeekerProfile.Notes"
+									</p>
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+
+				<div class="card-footer bg-light p-4 text-center">
+					<form method="post" asp-page-handler="UpdateStatus" class="d-flex flex-wrap gap-2">
+
+						<input type="hidden" name="seekerId" value="@Model.SeekerProfile.Id" />
+
+						<button type="submit" name="newStatus" value="3" class="btn btn-outline-warning btn-sm rounded-pill px-3">
+							<i class="bi bi-calendar-event me-1"></i> Entrevista
+						</button>
+
+						<button type="submit" name="newStatus" value="4" class="btn btn-outline-info btn-sm rounded-pill px-3">
+							<i class="bi bi-journal-check me-1"></i> En Prueba
+						</button>
+
+						<button type="submit" name="newStatus" value="5" class="btn btn-outline-success btn-sm rounded-pill px-3">
+							<i class="bi bi-check-circle me-1"></i> Contratado
+						</button>
+
+						<button type="submit" name="newStatus" value="6" class="btn btn-outline-danger btn-sm rounded-pill px-3">
+							<i class="bi bi-x-circle me-1"></i> Rechazar
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

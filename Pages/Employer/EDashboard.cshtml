@@ -6,74 +6,98 @@
 
 <div class="container-fluid" style="height: calc(100vh - 60px); overflow: hidden;">
 	<div class="row h-100">
-
 		<div class="col-lg-8 h-100 py-4" style="overflow-y: auto; scrollbar-width: thin;">
 			<div class="pe-2">
 
 				<div class="d-flex justify-content-between align-items-center mb-3">
-					<h5 class="fw-bold m-0">Ofertas Publicadas</h5>
-					<span class="text-muted small">He publicado @Model.MyJobs.Count ofertas</span>
+					<div>
+						<h5 class="fw-bold m-0">Ofertas Publicadas</h5>
+						<span class="text-muted small">He publicado @Model.MyJobs.Count ofertas</span>
+					</div>
+					<a asp-page="/JobOffers/Create" class="btn btn-success rounded-pill px-4 shadow-sm">
+						<i class="bi bi-plus-lg me-1"></i> Publicar Vacante
+					</a>
 				</div>
 
-				@foreach (var job in Model.MyJobs) {
-					<article class="card shadow-sm border-0 mb-3 hover-shadow" style="transition: 0.3s;">
-						<div class="card-body p-4">
-							<h4 class="h5 fw-bold mb-1">
-								<a href="#" class="text-decoration-none text-dark">@job.Title</a>
-							</h4>
+				@if (!Model.MyJobs.Any()) {
+					<div class="text-center py-5 bg-white rounded shadow-sm border">
+						<i class="bi bi-megaphone text-muted display-4"></i>
+						<p class="text-muted mt-3">No has publicado vacantes.</p>
+					</div>
+				}
 
-							<p class="text-muted mb-2">
-								<i class="bi bi-geo-alt me-1"></i>
-								@(job.Employer?.Industry ?? "Sin Especificar")
-								<span class="mx-3">|</span>
-								<i class="bi bi-building me-1"></i>
-								<strong>@(job.Employer?.User?.FullName ?? "CONFIDENCIAL")</strong>
-								<span class="mx-2">|</span>
-								<i class="bi bi-geo-alt me-1"></i>
-								@(job.Employer?.Location ?? "Sin Especificar")
-							</p>
+				@if (Model.MyJobs != null && Model.MyJobs.Count != 0) {
+					@foreach (var job in Model.MyJobs) {
+						<article class="card shadow-sm border-0 mb-3 hover-shadow" style="transition: 0.3s;">
+							<div class="card-body p-4">
+								<h4 class="h5 fw-bold mb-1">
+									<a href="#" class="text-decoration-none text-dark">@job.Title</a>
+								</h4>
 
-							<div class="d-flex gap-3 mb-3 text-secondary small">
-								<span>
-									<i class="bi bi-cash-stack me-1"></i>
-									@job.Salary (@(job.Payment == 0 ? "Sin Especificar" : job.Payment.ToString()))
-								</span>
-								<span class="mx-2">|</span>
-								<span>
-									<i class="bi bi-laptop me-1"></i>
-									@job.Mode
-								</span>
-							</div>
+								<p class="text-muted mb-2">
+									<i class="bi bi-geo-alt me-1"></i>
+									@(job.Employer?.Industry ?? "Sin Especificar")
+									<span class="mx-3">|</span>
+									<i class="bi bi-building me-1"></i>
+									<strong>@(job.Employer?.User?.FullName ?? "CONFIDENCIAL")</strong>
+									<span class="mx-2">|</span>
+									<i class="bi bi-geo-alt me-1"></i>
+									@(job.Employer?.Location ?? "Sin Especificar")
+								</p>
 
-							<p class="text-secondary small mb-3 text-truncate-2">@job.Description</p>
+								<div class="d-flex gap-3 mb-3 text-secondary small">
+									<span>
+										<i class="bi bi-cash-stack me-1"></i>
+										@job.Salary (@(job.Payment == 0 ? "Sin Especificar" : job.Payment.ToString()))
+									</span>
+									<span class="mx-2">|</span>
+									<span>
+										<i class="bi bi-laptop me-1"></i>
+										@job.Mode
+									</span>
+								</div>
 
-							<div class="d-flex justify-content-between align-items-center border-top pt-3 mt-2">
-								<span class="text-muted small">
-									<i class="bi bi-clock me-1"></i>
-									@{
-										var timeSpan = DateTime.Now - job.CreatedDate;
-										if (timeSpan.TotalDays < 1) {
-											if (timeSpan.TotalHours < 1) {
-												@($"Hace {Math.Max(1, (int)timeSpan.TotalMinutes)} minutos")
+								<p class="text-secondary small mb-3 text-truncate-2">@job.Description</p>
+
+								<div class="d-flex justify-content-between align-items-center border-top pt-3 mt-2">
+									<span class="text-muted small">
+										<i class="bi bi-clock me-1"></i>
+										@{
+											var timeSpan = DateTime.Now - job.CreatedDate;
+											if (timeSpan.TotalDays < 1) {
+												if (timeSpan.TotalHours < 1) {
+													@($"Hace {Math.Max(1, (int)timeSpan.TotalMinutes)} minutos")
+												}
+												else {
+													@($"Hace {(int)timeSpan.TotalHours} horas")
+												}
+											}
+											else if (timeSpan.TotalDays < 30) {
+												@($"Hace {(int)timeSpan.TotalDays} días")
 											}
 											else {
-												@($"Hace {(int)timeSpan.TotalHours} horas")
+												@job.CreatedDate.ToString("dd MMM yyyy")
 											}
 										}
-										else if (timeSpan.TotalDays < 30) {
-											@($"Hace {(int)timeSpan.TotalDays} días")
-										}
-										else {
-											@job.CreatedDate.ToString("dd MMM yyyy")
-										}
-									}
-								</span>
-								<div class="btn-group"> 
-									<button class="btn btn-primary btn-sm px-4 rounded-pill">Editar</button>
+									</span>
+								</div><div class="d-flex justify-content-between align-items-center border-top pt-3 mt-2">
+									<span class="text-muted small">
+										<i class="bi bi-people-fill me-1 text-primary"></i>
+										<strong>@job.Applications.Count</strong> Candidatos interesados
+									</span>
+
+									<div class="btn-group">
+										<a asp-page="/JobOffers/Applications" asp-route-jobId="@job.Id" class="btn btn-outline-primary btn-sm px-3 rounded-start-pill">
+											Ver Postulados
+										</a>
+										<a asp-page="/JobOffers/Edit" asp-route-id="@job.Id" class="btn btn-primary btn-sm px-3 rounded-end-pill">
+											Editar
+										</a>
+									</div>
 								</div>
 							</div>
-						</div>
-					</article>
+						</article>
+					}
 				}
 			</div>
 		</div>
@@ -114,7 +138,7 @@
 						<a asp-page="/Index" class="btn btn-outline-danger btn-sm px-4 rounded-pill">Cerrar Sesión</a>
 					</div>
 				</div>
-			</div> 
-		</div> 
+			</div>
+		</div>
 	</div>
 </div>

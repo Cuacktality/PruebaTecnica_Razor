@@ -2,52 +2,88 @@
 @model PruebaTecnica.Pages.Users.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Usuario"; 
+    var role = Request.Query["role"].ToString();
 }
 
-<h1>Create</h1>
+<div class="container py-5">
+    <div class="card shadow border-0 mx-auto" style="max-width: 800px;">
+        <div class="card-header @(role == "Seeker" ? "bg-success" : "bg-info") text-white text-center py-3">
+            <h4 class="mb-0">Registrarse como @(role == "Seeker" ? "Candidato" : "Empresa")</h4>
+        </div>
+        <div class="card-body p-4">
+            <form method="post">
+                <input type="hidden" name="roleStr" value="@role" />
 
-<h4>User</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <span class="text-danger">*</span>
-                <label asp-for="User.FullName" class="control-label"></label>
-                <input asp-for="User.FullName" class="form-control" aria-required="true"/>
-                <span asp-validation-for="User.FullName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <span class="text-danger">*</span>
-                <label asp-for="User.Email" class="control-label"></label>
-                <input asp-for="User.Email" class="form-control" aria-required="true"/>
-                <span asp-validation-for="User.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <span class="text-danger">*</span>
-                <label asp-for="User.Pass" class="control-label"></label>
-                <input asp-for="User.Pass" class="form-control" aria-required="true"/>
-                <span asp-validation-for="User.Pass" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="User.URole" class="control-label">Tipo de Usuario</label>
-                <select asp-for="User.URole" class="form-control" 
-                        asp-items="@(new SelectList(Html.GetEnumSelectList<PruebaTecnica.Models.MyRole>().Where(x => x.Text != "None"), "Value", "Text"))">
-                    <option value="">-- Seleccione un Rol --</option>
-                </select>
-                <span asp-validation-for="User.URole" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                <h5 class="text-secondary border-bottom pb-2 mb-3">Datos de Cuenta</h5>
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <label class="form-label">Nombre Completo</label>
+                        <input name="FullName" class="form-control" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Correo Electrónico</label>
+                        <input type="email" name="Email" class="form-control" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" name="Pass" class="form-control" required />
+                    </div>
+                </div>
+
+                @if (role == "Seeker") {
+                    <h5 class="text-secondary border-bottom pb-2 mt-4 mb-3">Información Profesional</h5>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Edad</label>
+                            <input type="number" name="Age" class="form-control" />
+                        </div>
+                        <div class="col-md-8">
+                            <label class="form-label">Teléfono</label>
+                            <input name="ContactNumber" class="form-control" required />
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Nivel Educativo</label>
+                            <select name="ELevel" class="form-select" required>
+                                <option value="1">Técnico</option>
+                                <option value="2">Tecnólogo</option>
+                                <option value="3">Universitario</option>
+                                <option value="4">Postgrado</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Experiencia Laboral</label>
+                            <textarea name="WorkXP" class="form-control" rows="2" required></textarea>
+                        </div>
+                    </div>
+                }
+                else {
+                    <h5 class="text-secondary border-bottom pb-2 mt-4 mb-3">Información de Empresa</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Ubicación</label>
+                            <input name="Location" class="form-control" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Industria</label>
+                            <input name="Industry" class="form-control" required />
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Número de Empleados</label>
+                            <input type="number" name="EmployeeCount" class="form-control" required />
+                        </div>
+                    </div>
+                }
+
+                <div class="d-grid gap-2 mt-4">
+                    <button type="submit" class="btn @(role == "Seeker" ? "btn-success" : "btn-info text-white") rounded-pill shadow">
+                        Crear Mi Cuenta Ahora
+                    </button>
+                    <a asp-page="/Index" class="btn btn-link text-muted btn-sm">Ya tengo cuenta, iniciar sesión</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

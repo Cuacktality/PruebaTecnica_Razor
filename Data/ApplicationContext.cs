@@ -27,6 +27,11 @@ namespace PruebaTecnica.Data {
                 .WithMany()
                 .HasForeignKey(a => a.JobOfferId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<JobApplication>()
+                .HasOne(a => a.JobOffer)
+                .WithMany(j => j.Applications)
+                .HasForeignKey(a => a.JobOfferId);
         }
     }
 }

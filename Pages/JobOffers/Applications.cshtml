@@ -1,0 +1,67 @@
+﻿@page "{jobId:int}"
+@model PruebaTecnica.Pages.JobOffers.ApplicationsModel
+@{
+    ViewData["Title"] = "Candidatos Postulados";
+}
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-1">
+                    <li class="breadcrumb-item"><a asp-page="/Employer/EDashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Postulados</li>
+                </ol>
+            </nav>
+            <h3 class="fw-bold">Candidatos para: <span class="text-primary">@Model.JobOffer.Title</span></h3>
+            <p class="text-muted">Total: @Model.Applications.Count personas interesadas</p>
+        </div>
+        <a asp-page="/Employer/EDashboard" class="btn btn-outline-secondary rounded-pill">
+            <i class="bi bi-arrow-left"></i> Volver
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="bg-light">
+                    <tr>
+                        <th class="ps-4">Nombre del Candidato</th>
+                        <th>Nivel Educativo</th>
+                        <th>Teléfono</th>
+                        <th>Fecha de Aplicación</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.Applications.Any()) {
+                        <tr>
+                            <td colspan="5" class="text-center py-5 text-muted">
+                                <i class="bi bi-emoji-frown display-6"></i>
+                                <p class="mt-2">Aún no hay candidatos para esta vacante.</p>
+                            </td>
+                        </tr>
+                    }
+                    @foreach (var app in Model.Applications) {
+                        <tr>
+                            <td class="ps-4">
+                                <div class="fw-bold">@app.Seeker.User?.FullName</div>
+                                <div class="small text-muted">@app.Seeker.User?.Email</div>
+                            </td>
+                            <td>
+                                <span class="badge bg-light text-dark border">@app.Seeker.ELevel</span>
+                            </td>
+                            <td>@app.Seeker.ContactNumber</td>
+                            <td class="small">@app.AppliedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td class="text-center"> 
+                                <a asp-page="/Seeker/Details" asp-route-id="@app.SeekerId" class="btn btn-sm btn-outline-info rounded-pill">
+                                    <i class="bi bi-eye"></i> Perfil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

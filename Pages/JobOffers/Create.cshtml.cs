@@ -1,40 +1,38 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using PruebaTecnica.Models;
 
-namespace PruebaTecnica.Pages.JobOffers
-{
-    public class CreateModel : PageModel
-    {
+namespace PruebaTecnica.Pages.JobOffers {
+    public class CreateModel : PageModel {
         private readonly Data.ApplicationContext _context;
+        public CreateModel(Data.ApplicationContext context) => _context = context;
+        [BindProperty] public JobOffer JobOffer { get; set; } = default!;
 
-        public CreateModel(Data.ApplicationContext context)
-        {
-            _context = context;
-        }
+        public async Task<IActionResult> OnGetAsync() {
+            int? userId = HttpContext.Session.GetInt32("UserId");
+            var employer = await _context.EmployerProfile.FirstOrDefaultAsync(e => e.UserId == userId);
 
-        public IActionResult OnGet()
-        {
-        ViewData["EmployerId"] = new SelectList(_context.EmployerProfile, "Id", "Industry");
+            if (employer == null) return RedirectToPage("/Index");
+
+            JobOffer = new JobOffer {
+                EmployerId = employer.Id,
+                CreatedDate = DateTime.Now
+            };
+
             return Page();
         }
 
-        [BindProperty]
-        public JobOffer JobOffer { get; set; } = default!;
+        public async Task<IActionResult> OnPostAsync() {
+            ModelState.Remove("JobOffer.Employer");
 
-        // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) {
                 return Page();
             }
 
             _context.JobOffer.Add(JobOffer);
             await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Employer/EDashboard");
         }
     }
 }

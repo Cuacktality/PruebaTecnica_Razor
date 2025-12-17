@@ -11,6 +11,8 @@ namespace PruebaTecnica.Models {
         [Required] public Payment Payment { get; set; } = Payment.None;
         [Required] public string Salary { get; set; } = string.Empty!;
         public int EmployerId { get; set; }
+        // En JobOffer.cs
+        public virtual ICollection<JobApplication> Applications { get; set; } = new List<JobApplication>();
         [ForeignKey("EmployerId")] public virtual EmployerProfile? Employer { get; set; }
     }
 }

@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|c:\\users\\cuack\\documents\\github\\pruebatecnica_razor\\pages\\seeker\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|solutionrelative:pages\\seeker\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|c:\\users\\cuack\\documents\\github\\pruebatecnica_razor\\pages\\seeker\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|solutionrelative:pages\\seeker\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|c:\\users\\cuack\\documents\\github\\pruebatecnica_razor\\pages\\seeker\\details.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|solutionrelative:pages\\seeker\\details.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|c:\\users\\cuack\\documents\\github\\pruebatecnica_razor\\models\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|solutionrelative:models\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|c:\\users\\cuack\\documents\\github\\pruebatecnica_razor\\pages\\seeker\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|solutionrelative:pages\\seeker\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|c:\\users\\cuack\\documents\\github\\pruebatecnica_razor\\pages\\seeker\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|solutionrelative:pages\\seeker\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|c:\\users\\cuack\\documents\\github\\pruebatecnica_razor\\pages\\seeker\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|solutionrelative:pages\\seeker\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|c:\\users\\cuack\\documents\\github\\pruebatecnica_razor\\pages\\joboffers\\applications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB580E5E-5984-5D5B-7876-765E42C05E78}|PruebaTecnica.csproj|solutionrelative:pages\\joboffers\\applications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Utils.cs",
               "DocumentMoniker": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Models\\Utils.cs",
               "RelativeDocumentMoniker": "Models\\Utils.cs",
               "ToolTip": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Models\\Utils.cs",
               "RelativeToolTip": "Models\\Utils.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:33:39.527Z",
+              "WhenOpened": "2025-12-17T20:43:45.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Details.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Seeker\\Details.cshtml.cs",
+              "ToolTip": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Details.cshtml.cs",
+              "RelativeToolTip": "Pages\\Seeker\\Details.cshtml.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAYwB0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T20:40:59.81Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Seeker\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Edit.cshtml",
-              "RelativeToolTip": "Pages\\Seeker\\Edit.cshtml",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAIwDIAAABBAAAAAAAAAA==",
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Details.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Seeker\\Details.cshtml",
+              "ToolTip": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Details.cshtml",
+              "RelativeToolTip": "Pages\\Seeker\\Details.cshtml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAUwBgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T18:30:56.061Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Delete.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Delete.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Seeker\\Delete.cshtml.cs",
-              "ToolTip": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Delete.cshtml.cs",
-              "RelativeToolTip": "Pages\\Seeker\\Delete.cshtml.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAwwDcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:30:21.869Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Edit.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Edit.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Seeker\\Edit.cshtml.cs",
-              "ToolTip": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Edit.cshtml.cs",
-              "RelativeToolTip": "Pages\\Seeker\\Edit.cshtml.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAmwE8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:30:16.843Z",
+              "WhenOpened": "2025-12-17T20:39:47.823Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Seeker\\Dashboard.cshtml",
-              "ToolTip": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\Seeker\\Dashboard.cshtml",
-              "RelativeToolTip": "Pages\\Seeker\\Dashboard.cshtml",
-              "ViewState": "AgIAAOYAAAAAAAAAAAAAwPsAAAAAAAAAAAAAAA==",
+              "Title": "Applications.cshtml",
+              "DocumentMoniker": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\JobOffers\\Applications.cshtml",
+              "RelativeDocumentMoniker": "Pages\\JobOffers\\Applications.cshtml",
+              "ToolTip": "C:\\Users\\cuack\\Documents\\GitHub\\PruebaTecnica_Razor\\Pages\\JobOffers\\Applications.cshtml",
+              "RelativeToolTip": "Pages\\JobOffers\\Applications.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwEIAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T18:29:20.607Z",
+              "WhenOpened": "2025-12-17T20:38:58.014Z",
               "EditorCaption": ""
             }
           ]
